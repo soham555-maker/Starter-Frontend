@@ -16,10 +16,10 @@ export default function Root() {
         dispatch(fetchEmployees());
     }, []);
 
-    const handleAddEmployee = () => {
-        dispatch(addEmployees({ employee_name: employeeName }));
+    const handleAddEmployee = (e) => {
+        e.preventdefault();
+        dispatch(addEmployees(employeeName));
     };
-    console.log(employees)
 
     return (
         <div>
@@ -61,7 +61,7 @@ export default function Root() {
                         onChange={(e) => setEmployeeName(e.target.value)}
                         placeholder="Enter employee name"
                     />
-                    <button type="submit">Add Employee</button>
+                    <button type="submit" onClick={(e)=>{handleAddEmployee(e)}}>Add Employee</button>
                 </form>
                 <div>
                     employees:
