@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 // import App from './App.jsx'
 import './index.css'
-import Root from './routes/Root/Root.jsx';
+import Root from './routes/Roots/Root.jsx';
 import Error from './routes/Error/Error.jsx';
 
 const router = createBrowserRouter([
@@ -16,13 +16,13 @@ const router = createBrowserRouter([
     errorElement: <Error/>,
     children: [
       {
-        path: "/",
-        element: <div >Home</div>,
+        path: "",
+        element: <div >Home {import.meta.env.VITE_TEST}</div>,
         errorElement: <Error/>
       },
       {
         path: "login",
-        element: <div >login</div>,
+        element: <div >Login</div>,
         errorElement: <Error/>
       }
     ]
