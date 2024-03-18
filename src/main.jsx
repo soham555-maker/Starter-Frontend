@@ -7,22 +7,24 @@ import {
 // import App from './App.jsx'
 import './index.css'
 import Root from './routes/Roots/Root.jsx';
-import Error from './routes/Error/Error.jsx';
+import Error from './routes/Errors/Error.jsx';
+import { Provider } from 'react-redux';
+import {store} from './Redux/Stores/Store.js'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Provider store={store}><Root/></Provider>,
     errorElement: <Error/>,
     children: [
       {
         path: "",
-        element: <div >Home {import.meta.env.VITE_TEST}</div>,
+        element: <Provider store={store}><div >Home {import.meta.env.VITE_TEST}</div></Provider>,
         errorElement: <Error/>
       },
       {
         path: "login",
-        element: <div >Login</div>,
+        element: <Provider store={store}><div >Login</div></Provider>,
         errorElement: <Error/>
       }
     ]
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 )
