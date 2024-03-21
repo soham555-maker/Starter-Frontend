@@ -1,0 +1,10 @@
+.name_row{
+    display:grid;
+    /* width : 0%; */
+    padding: 10px;
+    grid-template-columns:  3fr 1fr 1fr;
+}
+
+.myStyle{
+    background-color: red;
+}

@@ -10,6 +10,7 @@ import Root from './routes/Roots/Root.jsx';
 import Error from './routes/Errors/Error.jsx';
 import { Provider } from 'react-redux';
 import {store} from './Redux/Stores/Store.js'
+import Test from './pages/Tests/Test.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,10 +27,16 @@ const router = createBrowserRouter([
         path: "login",
         element: <Provider store={store}><div >Login</div></Provider>,
         errorElement: <Error/>
+      },
+      {
+        path: "test",
+        element: <Provider store={store}><Test/></Provider>,
+        errorElement: <Error/>
+      },
+    ]
       }
     ]
-  },
-]);
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
